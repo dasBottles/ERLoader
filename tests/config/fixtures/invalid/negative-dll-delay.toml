@@ -1,0 +1,37 @@
+[app]
+version = 1
+active_profile = "camera-profile"
+
+[game]
+type = "eldenring"
+game_path = "C:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\eldenring.exe"
+
+[defaults]
+hide_advanced = true
+show_logs = false
+safe_profile = "vanilla"
+
+[[dll_mods]]
+id = "camera-tools"
+name = "CameraTools.dll"
+path = "dllmods\\CameraTools.dll"
+enabled = true
+required = true
+load_order = 1
+load_delay_ms = -100
+
+[[profiles]]
+id = "camera-profile"
+name = "Camera Profile"
+description = "Invalid delay example"
+file_mod_ids = []
+dll_mod_ids = ["camera-tools"]
+allow_warnings = false
+
+[[profiles]]
+id = "vanilla"
+name = "Vanilla Recovery"
+description = "Safe recovery profile"
+file_mod_ids = []
+dll_mod_ids = []
+allow_warnings = false

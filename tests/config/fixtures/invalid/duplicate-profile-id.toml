@@ -1,0 +1,28 @@
+[app]
+version = 1
+active_profile = "vanilla"
+
+[game]
+type = "eldenring"
+game_path = "C:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\eldenring.exe"
+
+[defaults]
+hide_advanced = true
+show_logs = false
+safe_profile = "vanilla"
+
+[[profiles]]
+id = "vanilla"
+name = "Vanilla Recovery"
+description = "First copy"
+file_mod_ids = []
+dll_mod_ids = []
+allow_warnings = false
+
+[[profiles]]
+id = "vanilla"
+name = "Vanilla Recovery Duplicate"
+description = "Second copy"
+file_mod_ids = []
+dll_mod_ids = []
+allow_warnings = false

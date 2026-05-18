@@ -30,6 +30,7 @@ Thumbs.db
 # Test / coverage
 coverage/
 TestResults/
+.pytest_cache/
 
 # Dependency caches
 node_modules/

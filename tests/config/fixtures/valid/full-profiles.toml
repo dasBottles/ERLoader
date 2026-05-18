@@ -1,0 +1,61 @@
+[app]
+version = 1
+active_profile = "casual-coop"
+
+[game]
+type = "eldenring"
+game_path = "C:\\Steam\\steamapps\\common\\ELDEN RING\\Game\\eldenring.exe"
+
+[defaults]
+hide_advanced = true
+show_logs = false
+safe_profile = "vanilla"
+
+[[file_mods]]
+id = "seamless-coop"
+name = "Seamless Co-op"
+path = "mods\\seamless-coop"
+enabled = true
+kind = "root"
+
+[[file_mods]]
+id = "randomizer"
+name = "Randomizer"
+path = "mods\\randomizer"
+enabled = false
+kind = "root"
+
+[[dll_mods]]
+id = "camera-tools"
+name = "CameraTools.dll"
+path = "dllmods\\CameraTools.dll"
+enabled = true
+required = true
+load_order = 1
+load_delay_ms = 1000
+
+[[dll_mods]]
+id = "discord-presence"
+name = "DiscordPresence.dll"
+path = "dllmods\\DiscordPresence.dll"
+enabled = false
+required = false
+load_order = 2
+load_delay_ms = 1000
+
+[[profiles]]
+id = "casual-coop"
+name = "Casual Co-op"
+description = "Regular user default co-op stack"
+file_mod_ids = ["seamless-coop"]
+dll_mod_ids = ["camera-tools"]
+allow_warnings = false
+last_used = "2026-05-17T19:00:00Z"
+
+[[profiles]]
+id = "vanilla"
+name = "Vanilla Recovery"
+description = "Safe recovery profile"
+file_mod_ids = []
+dll_mod_ids = []
+allow_warnings = false
