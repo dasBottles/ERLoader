@@ -1,0 +1,43 @@
+# Build outputs
+bin/
+obj/
+out/
+dist/
+build/*
+!build/.gitkeep
+
+# IDE / editor
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local config / secrets
+.env
+.env.*
+
+# Test / coverage
+coverage/
+TestResults/
+
+# Dependency caches
+node_modules/
+__pycache__/
+*.pyc
+
+# Runtime-managed app data (do not commit generated local state)
+appdata/
+config/active-profile.toml
+config/backups/
+config/imports/
