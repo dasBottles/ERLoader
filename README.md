@@ -55,6 +55,30 @@ ERLoader/
 5. Integrate runtime launch orchestration
 6. Add import, validation, logging, and recovery flows
 
+## Prototype status
+
+A downloadable Windows prototype now exists under:
+- `ERLoader.sln`
+- `ui/ERLoader.Wpf/`
+
+Current prototype capabilities:
+- unified launcher shell
+- profile switching
+- file mod list
+- DLL mod list with load order / delay columns
+- validation view with blockers and warnings
+- logs view
+- safe recovery action
+- mock launch flow for UX testing
+
+## Build the prototype on Windows
+
+1. Open `ERLoader.sln` in Visual Studio 2022.
+2. Let NuGet restore packages.
+3. Build and run the `ERLoader.Wpf` project.
+
+See `ui/ERLoader.Wpf/README.md` for more detail.
+
 ## Notes
 
 - Elden Ring only for v1
