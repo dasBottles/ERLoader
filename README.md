@@ -79,6 +79,13 @@ Current prototype capabilities:
 
 See `ui/ERLoader.Wpf/README.md` for more detail.
 
+## Prebuilt prototype artifacts
+
+Compiled Windows prototype zips are published under `artifacts/` when available:
+- `artifacts/ERLoader-Wpf-win-x64-self-contained.zip` — recommended, includes the .NET runtime
+- `artifacts/ERLoader-Wpf-win-x64-framework-dependent.zip` — smaller, requires .NET 8 Desktop Runtime on Windows
+- `artifacts/SHA256SUMS.txt` — checksums for the packaged builds
+
 ## Notes
 
 - Elden Ring only for v1

@@ -5,6 +5,10 @@ out/
 dist/
 build/*
 !build/.gitkeep
+artifacts/*/
+!artifacts/*.zip
+!artifacts/*.txt
+!artifacts/README.md
 
 # IDE / editor
 .vs/
