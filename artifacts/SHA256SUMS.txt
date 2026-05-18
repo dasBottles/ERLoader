@@ -1,2 +1,2 @@
-a7c577b6bbd145ff7c5e70053e85aa7623560827fc4d96eb79870de4a0f38035  ERLoader-Wpf-win-x64-self-contained.zip
-c568e75a59c3f7e71b46cf882acc50f640d4550925e1a897d030eb98c7a32143  ERLoader-Wpf-win-x64-framework-dependent.zip
+8ba10e1a610611b40aa580010c8843d656b6f69f89bf38912e2c9e743d4aa112  ERLoader-Wpf-win-x64-self-contained.zip
+285630f89b9b0e2c46ac68bcc4cb34def141f6964fee68cfefd8678c3c7cc5d0  ERLoader-Wpf-win-x64-framework-dependent.zip

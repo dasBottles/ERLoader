@@ -63,9 +63,11 @@ A downloadable Windows prototype now exists under:
 
 Current prototype capabilities:
 - unified launcher shell
-- profile switching
+- profile switching with corrected selected-card highlighting
 - file mod list
+- archive import for file mods via browse or drag-and-drop
 - DLL mod list with load order / delay columns
+- archive import for DLL mods via browse or drag-and-drop
 - validation view with blockers and warnings
 - logs view
 - safe recovery action

@@ -20,3 +20,4 @@ These are packaged Windows builds of the current ERLoader WPF prototype.
 
 This prototype is currently a functional GUI shell for UX and flow testing.
 It is not yet wired into the real Mod Engine 2 launch/runtime path.
+It now includes drag-and-drop and browse-based archive import flows for both file mods and DLL mods.

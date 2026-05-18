@@ -15,6 +15,24 @@
                  BorderBrush="#2B3954"
                  BorderThickness="1"
                  Style="{DynamicResource MahApps.Styles.MetroWindow.Clean}">
+    <mah:MetroWindow.Resources>
+        <Style x:Key="ProfileListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </mah:MetroWindow.Resources>
     <Grid Background="#0B1120">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -112,6 +130,7 @@
                              BorderBrush="#25324A"
                              Foreground="White"
                              ItemsSource="{Binding Profiles}"
+                             ItemContainerStyle="{StaticResource ProfileListBoxItemStyle}"
                              SelectedValuePath="Id"
                              Height="540"
                              SelectionChanged="ProfilesSelectionChanged">
@@ -119,10 +138,21 @@
                             <DataTemplate>
                                 <Border Margin="0,0,0,10"
                                         Padding="14"
-                                        Background="#172033"
-                                        CornerRadius="14"
-                                        BorderBrush="#22314B"
-                                        BorderThickness="1">
+                                        CornerRadius="14">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background" Value="#172033" />
+                                            <Setter Property="BorderBrush" Value="#22314B" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                    <Setter Property="Background" Value="#13263D" />
+                                                    <Setter Property="BorderBrush" Value="#2DE2E6" />
+                                                    <Setter Property="BorderThickness" Value="2" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
                                     <StackPanel>
                                         <DockPanel>
                                             <TextBlock Text="{Binding Name}" FontWeight="SemiBold" FontSize="16" Foreground="White" />
@@ -217,10 +247,41 @@
                     <Grid Margin="12">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="File-based mod roots routed through Mod Engine 2" Foreground="#9FB3C8" Margin="0,0,0,12" />
-                        <DataGrid Grid.Row="1"
+                        <Border Grid.Row="1"
+                                Margin="0,0,0,12"
+                                Padding="16"
+                                Background="#13263D"
+                                BorderBrush="#2DE2E6"
+                                BorderThickness="1"
+                                CornerRadius="14"
+                                AllowDrop="True"
+                                DragOver="FileModArchiveDragOver"
+                                Drop="FileModArchiveDrop">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="Import file-mod archive" Foreground="White" FontSize="16" FontWeight="SemiBold" />
+                                    <TextBlock Margin="0,6,0,0" Text="Drag a .zip, .7z, or .rar into this panel, or browse to add a new file-mod archive to the prototype list." Foreground="#9FB3C8" TextWrapping="Wrap" />
+                                    <TextBlock Margin="0,10,0,0" Text="{Binding LastImportMessage}" Foreground="#7DD3FC" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <Button Grid.Column="1"
+                                        Margin="16,0,0,0"
+                                        Padding="16,10"
+                                        Click="BrowseFileModArchivesClicked"
+                                        Background="#14B8A6"
+                                        Foreground="#04111D"
+                                        BorderThickness="0"
+                                        Content="Browse Archives" />
+                            </Grid>
+                        </Border>
+                        <DataGrid Grid.Row="2"
                                   AutoGenerateColumns="False"
                                   CanUserAddRows="False"
                                   HeadersVisibility="Column"
@@ -245,10 +306,41 @@
                     <Grid Margin="12">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="DLL compatibility layer preview with load order and delay management" Foreground="#9FB3C8" Margin="0,0,0,12" />
-                        <DataGrid Grid.Row="1"
+                        <Border Grid.Row="1"
+                                Margin="0,0,0,12"
+                                Padding="16"
+                                Background="#13263D"
+                                BorderBrush="#60A5FA"
+                                BorderThickness="1"
+                                CornerRadius="14"
+                                AllowDrop="True"
+                                DragOver="DllModArchiveDragOver"
+                                Drop="DllModArchiveDrop">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="Import DLL-mod archive" Foreground="White" FontSize="16" FontWeight="SemiBold" />
+                                    <TextBlock Margin="0,6,0,0" Text="Drag a .zip, .7z, or .rar into this panel, or browse to add a new DLL-mod archive to the prototype queue." Foreground="#9FB3C8" TextWrapping="Wrap" />
+                                    <TextBlock Margin="0,10,0,0" Text="Archives are staged into the prototype queue with a default load delay and order." Foreground="#93C5FD" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <Button Grid.Column="1"
+                                        Margin="16,0,0,0"
+                                        Padding="16,10"
+                                        Click="BrowseDllModArchivesClicked"
+                                        Background="#24324A"
+                                        Foreground="White"
+                                        BorderBrush="#334155"
+                                        Content="Browse DLL Archives" />
+                            </Grid>
+                        </Border>
+                        <DataGrid Grid.Row="2"
                                   AutoGenerateColumns="False"
                                   CanUserAddRows="False"
                                   HeadersVisibility="Column"
